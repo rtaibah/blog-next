@@ -1,21 +1,20 @@
-const title = "Faisal Alghurayri - Software Engineer";
-const description =
-  "Full stack engineer based in Riyadh, Saudi Arabia. I enjoy building in React and Node JS.";
+const title = 'Rami Taibah - Just a Front-end Developer and UX guy'
+const description = 'Fill in this later'
 
-export const url = "https://faisal.sh";
-const locale = "ar";
-const twitterHandle = "@fghurayri";
+export const url = 'https://rtaibah.com'
+const locale = 'en'
+const twitterHandle = '@rtaibah'
 
-const firstName = "Faisal";
-const lastName = "Alghurayri";
-export const fullName = `${firstName} ${lastName}`;
+const firstName = 'Rami'
+const lastName = 'Taibah'
+export const fullName = `${firstName} ${lastName}`
 
 export default {
   title,
   description,
   canonical: url,
   openGraph: {
-    type: "website",
+    type: 'website',
     locale,
     url,
     site_name: fullName,
@@ -29,6 +28,6 @@ export default {
   twitter: {
     handle: twitterHandle,
     site: twitterHandle,
-    cardType: "summary_large_image",
+    cardType: 'summary_large_image',
   },
-};
+}

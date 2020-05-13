@@ -6,7 +6,6 @@ export function formatDate(date) {
 
 export function formatPath(p) {
   let [path] = p.match(/\/pages\/.*\.mdx$/)
-  console.log(path)
   path = path.replace(/\/pages/, '')
   return path.replace(/\.mdx$/, '')
 }

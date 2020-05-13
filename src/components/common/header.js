@@ -1,15 +1,31 @@
-import { Stack, useColorMode, Box, Text, Flex, Button } from "@chakra-ui/core";
-import { FiSun } from "react-icons/fi";
-import { IoMdMoon } from "react-icons/io";
-import RouterLink from "next/link";
-import { bgColor, color } from "../../config/theme";
+import { Stack, useColorMode, Box, Text, Flex, Button } from '@chakra-ui/core'
+import { FiSun } from 'react-icons/fi'
+import { IoMdMoon } from 'react-icons/io'
+import RouterLink from 'next/link'
+import { bgColor, color } from '../../config/theme'
 
 let navItems = [
   {
-    name: "الرئيسية",
-    href: "/",
+    name: 'Home',
+    href: '/',
   },
-];
+  {
+    name: 'Lifestream',
+    href: '/lifestream',
+  },
+  {
+    name: 'Notes',
+    href: '/notes',
+  },
+  {
+    name: 'Web Zeitgeist',
+    href: '/zeitgeist',
+  },
+  {
+    name: 'Books',
+    href: '/books',
+  },
+]
 
 function NavItem({ name, href }) {
   return (
@@ -18,15 +34,15 @@ function NavItem({ name, href }) {
         <a>{name}</a>
       </RouterLink>
     </Text>
-  );
+  )
 }
 
 export default function Header() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode()
   return (
     <Flex
       as="header"
-      w={["90%", "80%", "70%", "70%"]}
+      w={['90%', '80%', '70%', '70%']}
       m="6"
       mt="8"
       justifyContent="space-between"
@@ -34,17 +50,15 @@ export default function Header() {
       color={color[colorMode]}
     >
       <Stack as="nav" isInline alignItems="center">
-        {navItems.map((item) => (
-          <NavItem key={item.name} {...item} />
-        ))}
+        {navItems.map(item => <NavItem key={item.name} {...item} />)}
       </Stack>
       <Button
         onClick={toggleColorMode}
-        _hover={{ boxShadow: "lg" }}
+        _hover={{ boxShadow: 'lg' }}
         aria-label="theme switching"
       >
-        <Box size="5" mt="1" as={colorMode === "light" ? IoMdMoon : FiSun} />
+        <Box size="5" mt="1" as={colorMode === 'light' ? IoMdMoon : FiSun} />
       </Button>
     </Flex>
-  );
+  )
 }

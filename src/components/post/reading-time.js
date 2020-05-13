@@ -15,7 +15,7 @@ export default function ReadingTime({ minutes }) {
   return (
     <Flex alignItems="baseline">
       <Text ml="2">
-        الوقت المتوقع للقراءة <strong dir="ltr">{minutes}</strong> دقيقة
+        Estimated reading time <strong dir="ltr">{minutes}</strong> minutes. 
       </Text>
       <CoffeeCups minutes={minutes} />
       <Icon name="dallah" size="40px" role="img" />
