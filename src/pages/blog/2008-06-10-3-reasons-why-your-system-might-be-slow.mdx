@@ -1,13 +1,20 @@
 ---
-
-title: "3 Reasons Why Your System Might Be Slow"
 author: rami
+categories:
+- Blog
 layout: linuxologist
 permalink: /2008/06/10/3-reasons-why-your-system-might-be-slow
-categories: [Blog]
-tags: [howto, linux]
-summary: Computer users expect their systems to work well at all times, but unfortunately this isn't always the case. If your system becomes slow, there certainly is something you can do about it. This article will help you understand what's happening on the system, whether it's the computer in front of you or a system you're accessing remotely. Naturally, I presume you're running Linux, and the tools described here are Linux tools. If you're on some other weird system ;) , your mileage may vary.
-
+publishedAt: '2008-06-10'
+summary: Computer users expect their systems to work well at all times, but unfortunately
+  this isn't always the case. If your system becomes slow, there certainly is something
+  you can do about it. This article will help you understand what's happening on the
+  system, whether it's the computer in front of you or a system you're accessing remotely.
+  Naturally, I presume you're running Linux, and the tools described here are Linux
+  tools. If you're on some other weird system ;) , your mileage may vary.
+tags:
+- howto
+- linux
+title: 3 Reasons Why Your System Might Be Slow
 ---
 
 _Editor's note: This is a guest blog by Martin Matusiak. Martin is a software engineer and a Linux enthusiast. He [blogs](http://www.matusiak.eu/numerodix/blog//) mostly about technology with emphasis on Open Source and Linux._
@@ -184,4 +191,3 @@ If your system becomes unresponsive because of io, it is because the cpu is not 
     $ ionice -p30956 -n7
 
 Here we are telling *ionice* first the process id of the program, and then the io priority it should have, on a scale from 0 (highest priority) to 7 (lowest).
-
