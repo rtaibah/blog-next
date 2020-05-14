@@ -49,7 +49,7 @@ def changeAuthor(filename):
 
 # Change the Layout of a post in a YAML front matter
 def changeLayout(filename):
-  fo = open(filename, "r+")
+  fo = open('zeitgeist/'+filename, "r+")
   mdFile= fo.read()
   change_layout= re.sub( r'layout:.*','layout: ' + new_layout, mdFile, re.M|re.I)
   fo.seek(0)
@@ -124,9 +124,9 @@ def changeTags(filename):
 
 for filename in os.listdir('./zeitgeist'):
     #getDate(filename)
-    addDate(filename)
+    #addDate(filename)
     #changeAuthor(filename)
-    #changeLayout(filename)
+    changeLayout(filename)
     #changeCategory(filename)
     #changeTags(filename)
     #deleteShorturls(filename)
