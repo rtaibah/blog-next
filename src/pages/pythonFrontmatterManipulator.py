@@ -6,7 +6,7 @@ import frontmatter
 import io
 
 new_author = "rami" # Changethe new author here
-new_layout = ""        # Change the new layout here
+new_layout = "zeitgeist"        # Change the new layout here
 new_categories = "Blog"    # Change categories here; space seperated
 new_tags = ""              # Change tags here; space seperated
 
