@@ -8,6 +8,7 @@ export default function PostItem({
   title,
   url,
   image,
+  video,
   summary,
   readingTime,
   __resourcePath,
@@ -34,12 +35,14 @@ export default function PostItem({
           {title}
         </Heading>
       </RouterLink>
-      <Image
-        src={'/assets/images/content/' + url + '/' + image}
-        alt={title}
-        size="250px"
-        objectFit="cover"
-      />
+      {image && (
+        <Image
+          src={'/assets/images/content/' + url + '/' + image}
+          alt={title}
+          size="650px"
+          objectFit="cover"
+        />
+      )}
       <Text fontSize={['md', 'lg', 'xl', 'xl']}>{summary}</Text>
       <Divider mt="30px" />
     </Flex>
