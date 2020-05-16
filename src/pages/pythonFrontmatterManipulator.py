@@ -31,7 +31,7 @@ def addMetaData(filename):
         post = frontmatter.loads(f.read())
         if post.get('url') == None:
             post['url'] = 'zeitgeist'
-            # Save the modified file
+        #    # Save the modified file
             with io.open('zeitgeist/'+filename, 'wb') as newfile: frontmatter.dump(post, newfile)
 
 

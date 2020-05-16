@@ -6,7 +6,7 @@ import ReadingTime from './reading-time'
 export default function PostItem({
   publishedAt,
   title,
-  layout,
+  url,
   image,
   summary,
   readingTime,
@@ -34,7 +34,12 @@ export default function PostItem({
           {title}
         </Heading>
       </RouterLink>
-      <Image src={'./' + image} alt={title} size="600px" objectFit="cover" />
+      <Image
+        src={'/assets/images/content/' + url + '/' + image}
+        alt={title}
+        size="250px"
+        objectFit="cover"
+      />
       <Text fontSize={['md', 'lg', 'xl', 'xl']}>{summary}</Text>
       <Divider mt="30px" />
     </Flex>

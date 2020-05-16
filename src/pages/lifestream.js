@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/core'
+import { SimpleGrid, Flex } from '@chakra-ui/core'
 import Container from '../components/common/container'
 import PostItem from '../components/post/list-item'
 import { frontMatter as posts } from './lifestream/*'
@@ -10,11 +10,11 @@ let sortedPosts = posts.sort(
 export default function Index() {
   return (
     <Container>
-      <Flex as="main" direction="column">
+      <SimpleGrid columns={3} spacing="8px">
         {sortedPosts.map(post => {
           return <PostItem {...post} key={post.__resourcePath} />
         })}
-      </Flex>
+      </SimpleGrid>
     </Container>
   )
 }
