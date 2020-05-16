@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "rm -rf .next && rm -rf .mdx* && next dev",
-    "build": "next build",
+    "build": "next-translate && next build && next export",
     "start": "next start"
   },
   "dependencies": {
