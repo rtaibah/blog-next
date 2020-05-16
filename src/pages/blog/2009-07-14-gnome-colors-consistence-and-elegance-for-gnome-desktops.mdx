@@ -47,24 +47,35 @@ Like most apps, you can either use the GUI or the command line to install GNOME-
 
 If you are on an a Debian based system like Ubuntu, you will need to add the PPA to apt-get: 
 
-	sudo gedit /etc/apt/sources.list.d/gnome-colors.list	 
+```bash
+sudo gedit /etc/apt/sources.list.d/gnome-colors.list	 
+```
+
 
 Then add the repos (I am doing Jaunty here, change Jaunty to your corresponding Ubuntu version) 
 
-	deb http://ppa.launchpad.net/gnome-colors-packagers/ppa/ubuntu jaunty main  
-	deb-src http://ppa.launchpad.net/gnome-colors-packagers/ppa/ubuntu jaunty main 
+```bash
+deb http://ppa.launchpad.net/gnome-colors-packagers/ppa/ubuntu jaunty main  
+deb-src http://ppa.launchpad.net/gnome-colors-packagers/ppa/ubuntu jaunty main 
+```
 
 Next you will need to add the keys, copy and paste this into your terminal: 
 
-	sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2d79f61be8d31a30 
+```bash
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2d79f61be8d31a30 
+```
 
 Update your repositories: 
 
-	sudo apt-get update 
+```bash
+sudo apt-get update 
+```
 
 Install: 
 
-	sudo apt-get install gnome-colors shiki-colors arc-colors
+```bash
+sudo apt-get install gnome-colors shiki-colors arc-colors
+```
 
 You should now go to: 
 

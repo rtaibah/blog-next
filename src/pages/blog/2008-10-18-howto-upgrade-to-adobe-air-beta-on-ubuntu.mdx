@@ -23,20 +23,28 @@ Simply downloading the beta version and running it will not work (at least for m
 
 First let's remove Adobe Air alpha: 
 
-    sudo dpkg -r adobeair-enu
+```bash
+sudo dpkg -r adobeair-enu
+```
 
 Then we need to insure that no old traces of Adobe Air exist: 
 
-    sudo rm -rf /opt/Adobe AIR
+```bash
+sudo rm -rf /opt/Adobe AIR
+```
+
 Clean up the traces from old runtime by deleting .adobe and .macromedia folders from your home directory and /root. 
 
-    rm -rf $HOME/.adobe $HOME/.macromedia
-
-    sudo rm -rf /root/.adobe /root/.macromedia
+```bash
+rm -rf $HOME/.adobe $HOME/.macromedia
+sudo rm -rf /root/.adobe /root/.macromedia
+```
 
 Now, you will need to remove your current installed applications. A combo of dpkg and grep should do the trick. Just type in the name of your apps between the quotes. For example: 
 
-    dpkg -l | grep "twhirl"
+```bash
+dpkg -l | grep "twhirl"
+```
 
 **Finally, copy the result and plug it in front of a "sudo dpkg -r"**
 

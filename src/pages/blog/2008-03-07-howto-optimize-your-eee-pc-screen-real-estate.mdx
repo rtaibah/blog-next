@@ -16,46 +16,62 @@ You will probably notice that the default [Ubuntu install](/2008/02/11/howto-ins
 
 ## Smaller Fonts:
 
-    gconftool-2 --set /apps/nautilus/preferences/desktop_font --type string "Sans 8"
-    gconftool-2 --set /desktop/gnome/interface/document_font_name --type string "Sans 8"
-    gconftool-2 --set /desktop/gnome/interface/font_name --type string "Sans 8"
-    gconftool-2 --set /apps/metacity/general/titlebar_font --type string "Sans Bold 8"
-    gconftool-2 --set /desktop/gnome/interface/monospace_font_name --type string "Monospace 8"
+```bash
+gconftool-2 --set /apps/nautilus/preferences/desktop_font --type string "Sans 8"
+gconftool-2 --set /desktop/gnome/interface/document_font_name --type string "Sans 8"
+gconftool-2 --set /desktop/gnome/interface/font_name --type string "Sans 8"
+gconftool-2 --set /apps/metacity/general/titlebar_font --type string "Sans Bold 8"
+gconftool-2 --set /desktop/gnome/interface/monospace_font_name --type string "Monospace 8"
+```
 
 _Note: Lines might get wrapped, you should paste each line separately in your command line, so just CTRL+- until you get 5 lines_
 
 ## All applications can go full-screen using F11
 
-    gconftool-2 --set /apps/metacity/window_keybindings/toggle_fullscreen --type string "F11"
+```bash
+gconftool-2 --set /apps/metacity/window_keybindings/toggle_fullscreen --type string "F11"
+```
 
 
 ## Smaller toolbars using icons only
 
-    gconftool-2 --set /desktop/gnome/interface/toolbar_style --type string "icons"
+```bash
+gconftool-2 --set /desktop/gnome/interface/toolbar_style --type string "icons"
+```
 
 
 ## Setting the right mixer (fixes the mute key)
 
-    gconftool-2 --set /desktop/gnome/sound/default_mixer_tracks --type list --list-type string "[PCM]"
+```bash
+gconftool-2 --set /desktop/gnome/sound/default_mixer_tracks --type list --list-type string "[PCM]"
+```
 
 ## Do not display the incorrect battery warning at login
 
-    gconftool-2 --set /apps/gnome-power-manager/notify/low_capacity --type bool 0
+```bash
+gconftool-2 --set /apps/gnome-power-manager/notify/low_capacity --type bool 0
+```
 
 ## constrain windows to the top of the screen
 
-    gconftool-2 --set /apps/compiz/plugins/move/allscreens/options/constrain_y --type bool 0
+```bash
+gconftool-2 --set /apps/compiz/plugins/move/allscreens/options/constrain_y --type bool 0
+```
 
 ## Making the top & bottom panels smaller
 
-    gconftool-2 --set /apps/panel/toplevels/top_panel_screen0/size --type integer 19
-    gconftool-2 --set /apps/panel/toplevels/bottom_panel_screen0/size --type integer 19
+```bash
+gconftool-2 --set /apps/panel/toplevels/top_panel_screen0/size --type integer 19
+gconftool-2 --set /apps/panel/toplevels/bottom_panel_screen0/size --type integer 19
+```
 
 ## Resolution
 
 You might get 640X480 resolution instead of the 800×480 default resolution. So run the following command: 
 
-    sudo dpkg-reconfigure xserver-xorg
+```bash
+sudo dpkg-reconfigure xserver-xorg
+```
 
 And choose the defaults on everything, except on the final stage choose 800X480
 
@@ -84,15 +100,21 @@ This one is pretty straight forward. Just right click on both taskbars (top and 
 
 6-Change the overall font size of firefox: 
 
-    cd /home/user/.mozilla/firefox/*.default/chrome/
+```bash
+cd /home/user/.mozilla/firefox/*.default/chrome/
+```
 
 Then edit userChrome.css:
 
-    kwrite userChrome.css
+```bash
+kwrite userChrome.css
+```
 
 Then change it to look like this: 
 
-    * {
-    font-family: sans-serif !important;
-    font-size: 8pt !important;
-    }
+```css
+* {
+font-family: sans-serif !important;
+font-size: 8pt !important;
+}
+```

@@ -3,7 +3,7 @@ author: rami
 categories:
 - Blog
 image: rotating-desktop.jpg
-layout: post
+layout: linuxologist 
 publishedAt: '2009-03-25'
 tags:
 - linux
@@ -23,25 +23,35 @@ Before we start, you need to have a good deal of cool wallpapers don't you? Of c
 
 First you need to create a directory in your home directory, lets call it Wallpapers 
 
-	mkdir ~/Wallpapers
+```bash
+mkdir ~/Wallpapers
+```
 
 Now you need to connect to gnome.org ftp servers 
 
-	ftp ftp.gnome.org 
+```bash
+ftp ftp.gnome.org 
+```
 
 Next you will be asked to enter a username and password. "anonymous" will be your username and just press enter when prompted for the password. 
 
 Now lets navigate to the wallpapers on their servers 
 
-	cd /pub/GNOME/teams/art.gnome.org/backgrounds 
+```bash
+cd /pub/GNOME/teams/art.gnome.org/backgrounds 
+```
 
 You will also need to turn prompting off, you don't want it bugging you asking you if you want to download each single file 
 
-	prompt off 
+```bash
+prompt off 
+```
 
 Now lets download all 1280×1024 (assuming thats your resolution) 
 
-	mget 1280x1024.jpg 
+```bash
+mget 1280x1024.jpg 
+```
 
 Thats it! I just did that and got me 361 cool Gnome specific wallpapers!
 
@@ -49,7 +59,9 @@ Thats it! I just did that and got me 361 cool Gnome specific wallpapers!
 
 This method uses a script written by [DoctorMo](http://ubuntuforums.org/member.php?u=37520) over at [Ubuntuforums](http://www.ubuntuforums.org). All you need to do now is [downlaod the script](/assets/misc/changer) (right click and save as) and place in your home directory. Then make it executable 
 
-	chmod a+x ~/changer
+```bash
+chmod a+x ~/changer
+```
 
 You can either set up a [cron job](http://en.wikipedia.org/wiki/Cron) now, or if you want a GUI to do that then just download \[gnome-schedule\]\[2\] (it can also be found in your package manager if your not using an apt based distro). Finally you will need to add the downloaded wallpapers from gnome.org so that the script sees it. So right click on your desktop and choose "change desktop wallpaper" and then add all the images from there.
 
@@ -73,16 +85,22 @@ Wallpapoz application enables you to configure Gnome desktop wallpapers in uniqu
 
 Before you install it, please grab these dependencies (on an apt-system): 
 
-	sudo apt-get install python-gnome2 python-imaging python-gtk2
+```bash
+sudo apt-get install python-gnome2 python-imaging python-gtk2
+```
 
 Now grab the [source from here](http://wallpapoz.akbarhome.com/download.html) and unzip 
 
-	tar -xzf wallpapoz-0.4.tar.g 
+```bash
+tar -xzf wallpapoz-0.4.tar.g 
+```
 
 Install 
 
-	cd wallpapoz-0.4  
-	sudo python setup.py install
+```bash
+cd wallpapoz-0.4  
+sudo python setup.py install
+```
 
 ![wallpapoz_1](/assets/images/content/blog/wallpapoz-1.png)
 

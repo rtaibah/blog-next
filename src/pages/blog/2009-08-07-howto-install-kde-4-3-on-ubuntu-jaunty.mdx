@@ -30,21 +30,31 @@ Unfortunately if you are on Ubuntu Jaunty (or Kubuntu), you will not officially 
 
 First you will need to add the repos to your sources.list file: 
 
-	sudo sh -c "echo 'deb http://ppa.launchpad.net/kubuntu-ppa/backports/ubuntu jaunty main' >> /etc/apt/sources.list" 
+```bash
+sudo sh -c "echo 'deb http://ppa.launchpad.net/kubuntu-ppa/backports/ubuntu jaunty main' >> /etc/apt/sources.list" 
+```
 
-	sudo sh -c "echo 'deb http://ppa.launchpad.net/kubuntu-ppa/staging/ubuntu jaunty main' >> /etc/apt/sources.list"
+```bash
+sudo sh -c "echo 'deb http://ppa.launchpad.net/kubuntu-ppa/staging/ubuntu jaunty main' >> /etc/apt/sources.list"
+```
 
 Add the GPG key: 
 
-	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8AC93F7A
+```bash
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8AC93F7A
+```
 	
 And upgrade: 
 
-	sudo aptitude update && sudo aptitude dist-upgrade
+```bash
+sudo aptitude update && sudo aptitude dist-upgrade
+```
 
 Or if you don't have KDE installed in the first place:
 
-	sudo aptitude install kubuntu-desktop
+```bash
+sudo aptitude install kubuntu-desktop
+```
 
 And they say that the command line is hard! Easy as 1-2-3!
 

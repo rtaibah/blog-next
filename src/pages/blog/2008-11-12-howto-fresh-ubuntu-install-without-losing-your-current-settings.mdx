@@ -30,7 +30,9 @@ Keeping your configuration intact is pretty straight forward and obvious. Just b
 
 Now for the current applications. Basically we just need to make a full list of the installed apps.
 
-    sudo dpkg --get-selections \> /home/user/package.selections
+```bash
+sudo dpkg --get-selections \> /home/user/package.selections
+```
 
 Of course don't forget to backup *package.selections*on the external hard-drive. Also you should backup your */etc/apt/sources.list* file since you probably have some extra sources listed over there. Now you can go about your business and do a fresh install.
 
@@ -38,7 +40,9 @@ Of course don't forget to backup *package.selections*on the external hard-drive.
 
 Once your done with the fresh install, copy the file* package.selections* into your home. Then copy your *sources.list* file into /etc/apt/ and update it to match your current distro (e.g Gutsy --> Intrepid) you can use CTRL + H in gedit for that. Then do a "sudo apt-get update" ,and finally invoke:
 
-    sudo dpkg --set-selections /home/package.selections && apt-get dselect-upgrade
+```bash
+sudo dpkg --set-selections /home/package.selections && apt-get dselect-upgrade
+```
 
 apt-get will now start downloading all your apps, this will take some time depending on the number of apps you have installed.
 

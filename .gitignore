@@ -33,3 +33,6 @@ yarn-error.log*
 .vercel
 .env
 .env.build
+
+# temp hack for a screwup
+.part

@@ -31,33 +31,43 @@ If you never added software from a PPA, here is what you should do to get Chromi
 
 Add these two lines to your /etc/apt/sources.list: 
 
-    deb http://ppa.launchpad.net/chromium-daily/ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
-
-    deb-src http://ppa.launchpad.net/chromium-daily/ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
+```bash
+deb http://ppa.launchpad.net/chromium-daily/ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
+deb-src http://ppa.launchpad.net/chromium-daily/ppa/ubuntu YOUR_UBUNTU_VERSION_HERE main
+```
 
 You may want to add the corresponding GPG key to your apt keyring.
 
-    sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4E5E17B5
+```bash
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4E5E17B5
+```
 
 Update: 
 
-    sudo apt-get update
+```bash
+sudo apt-get update
+```
 
 Install: 
 
-    sudo apt-get install chromium-browser
+```bash
+sudo apt-get install chromium-browser
+```
 
 ## Getting Flash To Work
 
 Now to get Flash running, we basically need to create a symbolic link of libflashplayer.so in the Chromium plugin folder: 
 
-    cd /usr/lib/chromium-browser/plugin
-
-    sudo ln -s ../../flashplugin-installer/libflashplayer.so
+```bash
+cd /usr/lib/chromium-browser/plugin
+sudo ln -s ../../flashplugin-installer/libflashplayer.so
+```
 
 One final step is to change the execution command to your Chromium icon to this _(Note these flags have two "-", for some reason WordPress is rendering only one)_: 
 
-    chromium-browser --enable-plugins --enable-greasemonkey --enable-user-scripts --enable-extensions
+```bash
+chromium-browser --enable-plugins --enable-greasemonkey --enable-user-scripts --enable-extensions
+```
 
 Thats it! If you face any problems, just leave a comment or [@rtaibah](http://twitter.com/rtaibah) on Twitter!
 

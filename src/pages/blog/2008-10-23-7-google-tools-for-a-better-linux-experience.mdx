@@ -25,32 +25,44 @@ Here you will find some great apps and tools that will generally improve your ex
 
 mail Notifier is a Linux alternative for the notifier program released by Googlemail Notifier is a Linux alternative for the notifier program released by [Google which still doesn't have a Linux version](http://toolbar.google.com/gmail-helper/notifier_windows.html) (why Google?). I love it because it also works with private domains handled by Google (e.g my email @linuxologist.com). When you receive an e-mail you are notified with a pop-up ala messenger style, which can also be modified to pop-up anywhere on your screen. To install it, invoke: 
 
-    sudo apt-get install gmail-notify
+```bash
+sudo apt-get install gmail-notify
+```
 
 ## 2-Google Desktop
 
 I hate to say this, but I prefer Google Desktop over the default Ubuntu desktop search applet, Tracker. It does exactly what it is supposed to do, search your Desktop, unlike Tracker that seems to be always a bit off. Install it using: 
 
-    sudo apt-get install google-desktop-linux
+```bash
+sudo apt-get install google-desktop-linux
+```
 
 ## 3-Google Gadgets and Sidebar
 
 A lot have voiced their disdain for this as worthless and resource hog. They do have a point, why would I want an over glorified clock or weather widget when I already have both in my panel. Personally I find most of the gadgets and widgets useless, however my only use of it is the Web Clips gadget. Web Clips is just another name for RSS feed, and I like to have 3 or 4 feeds that I always follow on my sidebar. Currently I am using 3 customized [Yahoo Pipes](http://pipes.yahoo.com) feeds. A [Digg popular direct link ](http://pipes.yahoo.com/georgywoods/sdfv2)feed, a [Friendfeed  that excludes Twitter ](http://pipes.yahoo.com/geekygirldawn/20ea93289bc362939bfd65883733fc16)feed, and a feed that [monitors linuxologist.com submissions on social media networks](http://pipes.yahoo.com/pipes/pipe.info?_id=e5f7cb1befdb4139590a7342a827cc43). To install you will first need to edit your sources: 
 
-    sudo nano /etc/apt/sources.list
+```bash
+sudo nano /etc/apt/sources.list
+```
 
 Then append the following two lines at the end of the file 
 
-    deb http://ppa.launchpad.net/googlegadgets/ubuntu hardy main
-    deb-src http://ppa.launchpad.net/googlegadgets/ubuntu hardy main
+```bash
+deb http://ppa.launchpad.net/googlegadgets/ubuntu hardy main
+deb-src http://ppa.launchpad.net/googlegadgets/ubuntu hardy main
+```
 
 Then run 
 
-    sudo apt-get update
+```bash
+sudo apt-get update
+```
 
 Finally 
 
-    sudo apt-get install google-gadgets
+```bash
+sudo apt-get install google-gadgets
+```
 
 To find out how to use the gadgets, check out this [Ubuntu Geek Howto](http://www.ubuntugeek.com/howto-install-google-gadgets-in-ubuntu-804-hardy-heron.html)
 
@@ -58,7 +70,9 @@ To find out how to use the gadgets, check out this [Ubuntu Geek Howto](http://ww
 
 Googlizer is a simple panel launcher for Google search. It works like this: you are peacefully surfing the Internet and you are stumped with a word or something you want to Google, instead of copying and pasting it in your bar and opening a new tab. You can just highlight the word and hit the Googlizer button on your panel. Not the best Google tool out there, I admit, but trust me it can grow on you. 
 
-    sudo apt-get install googlizer
+```bash
+sudo apt-get install googlizer
+```
 
 ## 5-Sync OpenOffice With Google Docs
 

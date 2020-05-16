@@ -40,6 +40,8 @@ But running an app on a virtual machine doesn't eliminate Windows from the equat
 
 Right click on your desktop and choose "create launcher". In type, keep it as is (application), for name name it whatever you please (I named it Windows-VM), and in command type in 
 
-    rdesktop -A -s 'c:seamlessseamlessrdpshell.exe c:windowsexplorer.exe' 192.168.1.104 -u linux -p 123123
+```bash
+rdesktop -A -s 'c:seamlessseamlessrdpshell.exe c:windowsexplorer.exe' 192.168.1.104 -u linux -p 123123
+```
     
 Of course you will need to change the IP to your IP and the password (123123) to whatever password you chose. Thats it! Double click on the launcher and you will shortly get a the Windows taskbar on the bottom. Of course if you want to totally get rid of MS nuisance, just enable the autohide option ;)
