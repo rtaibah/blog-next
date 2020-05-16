@@ -1,4 +1,4 @@
-import { Flex, Divider, Text, Heading } from '@chakra-ui/core'
+import { Image, Flex, Divider, Text, Heading } from '@chakra-ui/core'
 import RouterLink from 'next/link'
 import { formatDate, formatPath } from '../../utils/formatters'
 import ReadingTime from './reading-time'
@@ -6,6 +6,8 @@ import ReadingTime from './reading-time'
 export default function PostItem({
   publishedAt,
   title,
+  layout,
+  image,
   summary,
   readingTime,
   __resourcePath,
@@ -32,6 +34,7 @@ export default function PostItem({
           {title}
         </Heading>
       </RouterLink>
+      <Image src={'./' + image} alt={title} size="600px" objectFit="cover" />
       <Text fontSize={['md', 'lg', 'xl', 'xl']}>{summary}</Text>
       <Divider mt="30px" />
     </Flex>

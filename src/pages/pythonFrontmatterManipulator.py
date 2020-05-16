@@ -25,14 +25,14 @@ def getDate(filename):
     if date:
         return date.group(0)
 
-def addDate(filename):
+def addMetaData(filename):
     with open('zeitgeist/'+filename, 'r') as f:
         # Parse file's front matter
         post = frontmatter.loads(f.read())
-        #if post.get('publishedAt') == None:
-        #    post['publishedAt'] = getDate(filename)
-        #    # Save the modified file
-        #    with io.open('zeitgeist/'+filename, 'wb') as newfile: frontmatter.dump(post, newfile)
+        if post.get('url') == None:
+            post['url'] = 'zeitgeist'
+            # Save the modified file
+            with io.open('zeitgeist/'+filename, 'wb') as newfile: frontmatter.dump(post, newfile)
 
 
 
@@ -124,9 +124,9 @@ def changeTags(filename):
 
 for filename in os.listdir('./zeitgeist'):
     #getDate(filename)
-    #addDate(filename)
+    addMetaData(filename)
     #changeAuthor(filename)
-    changeLayout(filename)
+    #changeLayout(filename)
     #changeCategory(filename)
     #changeTags(filename)
     #deleteShorturls(filename)
