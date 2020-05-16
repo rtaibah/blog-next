@@ -17,7 +17,13 @@ export default frontMatter => {
     return (
       <Container>
         <PostSEO title={title} url={url} summary={summary} publishedAt={publishedAt} />
-        <Flex direction="column" dir="auto" maxW={['85%', '80%', '70%']} m="auto">
+        <Flex
+          alignItems="center"
+          direction="column"
+          dir="auto"
+          maxW={['85%', '80%', '70%']}
+          m="auto"
+        >
           <Heading my="30px" as="h1" size="xl" textAlign="center" lineHeight="1.8">
             {title}
           </Heading>
@@ -33,7 +39,9 @@ export default frontMatter => {
             </Text>
           </Flex>
           <SocialSharing title={sharingTitle} url={url} />
-          <Box textAlign="justify">{children}</Box>
+          <Flex direction="column" textAlign="justify">
+            {children}
+          </Flex>
         </Flex>
       </Container>
     )
