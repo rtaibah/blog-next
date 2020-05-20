@@ -1,49 +1,33 @@
-import React, { useState, useEffect } from 'react'
-import ReactPaginate from 'react-paginate'
-import Router, { withRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import { Flex } from '@chakra-ui/core'
 import Container from '../components/common/container'
 import PostItem from '../components/post/list-item'
 import { frontMatter as posts } from './blog/*'
+import Pagination from '../components/common/pagination'
 
 let PER_PAGE = 20
 let postCount = posts.length
-let pageCount = postCount / PER_PAGE
-let currentPage = 1
+let pageCount = postCount / PER_PAGE //decimal point?
 
 let sortedPosts = posts.sort(
   (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)),
 )
 
-const Home = props => {
-  const [isLoading, setLoading] = useState(false) //State for the loading indicator
-  const startLoading = () => setLoading(true)
-  const stopLoading = () => setLoading(false)
-
-  /*
-*           Posts fetching happens after page navigation, 
-*                     so we need to switch Loading state on Router events.
-*
-*/
-
+const Home = () => {
+  const [currentPage, setCurrentPage] = useState(0)
+  const router = useRouter()
   useEffect(() => {
-    //After the component is mounted set router event handlers
-    Router.events.on('routeChangeStart', startLoading)
-    Router.events.on('routeChangeComplete', stopLoading)
-
-    return () => {
-      Router.events.off('routeChangeStart', startLoading)
-      Router.events.off('routeChangeComplete', stopLoading)
-    }
+    const pageNumber = router.query.page || 0
+    setCurrentPage(pageNumber)
   }, [])
-
   const pagginationHandler = page => {
-    const currentPath = props.router.pathname
-    const currentQuery = props.router.query
+    setCurrentPage(page.selected + 1)
+    const currentPath = router.pathname
+    const currentQuery = router.query
     currentQuery.page = page.selected + 1
-    currentPage = page.selected * PER_PAGE
 
-    props.router.push({
+    router.push({
       pathname: currentPath,
       query: currentQuery,
     })
@@ -51,43 +35,23 @@ const Home = props => {
 
   return (
     <Container>
-      <ReactPaginate
-        previousLabel={'previous'}
-        nextLabel={'next'}
-        breakLabel={'...'}
-        breakClassName={'break-me'}
-        activeClassName={'active'}
-        containerClassName={'pagination'}
-        subContainerClassName={'pages pagination'}
-        initialPage={currentPage - 1}
+      <Pagination
+        currentPage={currentPage}
         pageCount={pageCount}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={pagginationHandler}
+        pagginationHandler={pagginationHandler}
       />
-
       <Flex as="main" direction="column">
-        {sortedPosts.slice(currentPage, currentPage + PER_PAGE).map(post => {
+        {sortedPosts.slice(currentPage, +currentPage * PER_PAGE).map(post => {
           return <PostItem {...post} key={post.__resourcePath} />
         })}
       </Flex>
-
-      <ReactPaginate
-        previousLabel={'previous'}
-        nextLabel={'next'}
-        breakLabel={'...'}
-        breakClassName={'break-me'}
-        activeClassName={'active'}
-        containerClassName={'pagination'}
-        subContainerClassName={'pages pagination'}
-        initialPage={currentPage - 1}
+      <Pagination
+        currentPage={currentPage}
         pageCount={pageCount}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={pagginationHandler}
+        pagginationHandler={pagginationHandler}
       />
     </Container>
   )
 }
 
-export default withRouter(Home)
+export default Home

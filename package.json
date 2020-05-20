@@ -31,7 +31,8 @@
     "react-paginate": "^6.3.2",
     "react-share": "^4.1.0",
     "react-twitter-embed": "^3.0.3",
-    "reading-time": "^1.2.0"
+    "reading-time": "^1.2.0",
+    "sass": "^1.26.5"
   },
   "license": "MIT"
 }
