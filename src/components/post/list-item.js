@@ -39,7 +39,7 @@ export default function PostItem({
         <Image
           src={'/assets/images/content/' + url + '/' + image}
           alt={title}
-          size="650px"
+          size={['150px', '350px', '650px']}
           objectFit="cover"
         />
       )}
