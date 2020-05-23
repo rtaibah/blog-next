@@ -60,6 +60,6 @@ export default function Home() {
 }
 
 // Required to be able to read the page number from the query param.
-export async function getServerSideProps({ query }) {
+export async function getStaticProps({ query }) {
   return { props: {} }
 }
