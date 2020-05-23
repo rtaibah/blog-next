@@ -4,7 +4,7 @@ import PostItem from '../components/post/list-item'
 import { frontMatter as posts } from './zeitgeist/*'
 
 let sortedPosts = posts.sort(
-  (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)),
+  (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
 )
 
 export default function Index() {

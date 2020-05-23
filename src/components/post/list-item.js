@@ -8,7 +8,6 @@ export default function PostItem({
   title,
   url,
   image,
-  video,
   summary,
   readingTime,
   __resourcePath,
@@ -24,7 +23,10 @@ export default function PostItem({
       p="3"
       alignSelf="flext-start"
     >
-      <Flex alignItems="baseline" direction={['column', 'column', 'row', 'row']}>
+      <Flex
+        alignItems="baseline"
+        direction={['column', 'column', 'row', 'row']}
+      >
         <Text ml="4" fontSize={['md', 'lg', 'xl', 'xl']}>
           {formattedPublishedAt}
         </Text>

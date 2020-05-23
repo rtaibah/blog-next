@@ -1,15 +1,15 @@
-import { useColorMode, Box } from "@chakra-ui/core";
+import { useColorMode, Box } from '@chakra-ui/core'
 
 export default function InlineCode(props) {
-  const { colorMode } = useColorMode();
+  const { colorMode } = useColorMode()
   const bgColor = {
-    light: "gray.400",
-    dark: "gray.100",
-  };
+    light: 'gray.400',
+    dark: 'gray.100',
+  }
   const color = {
-    light: "gray.50",
-    dark: "gray.500",
-  };
+    light: 'gray.50',
+    dark: 'gray.500',
+  }
 
   return (
     <Box
@@ -23,5 +23,5 @@ export default function InlineCode(props) {
     >
       {props.children}
     </Box>
-  );
+  )
 }

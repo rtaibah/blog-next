@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Flex } from '@chakra-ui/core'
+import { Heading, Text, Flex } from '@chakra-ui/core'
 
 import { formatPath, formatDate } from '../utils/formatters'
 import Container from '../components/common/container'
@@ -16,7 +16,12 @@ export default frontMatter => {
   return ({ children }) => {
     return (
       <Container>
-        <PostSEO title={title} url={url} summary={summary} publishedAt={publishedAt} />
+        <PostSEO
+          title={title}
+          url={url}
+          summary={summary}
+          publishedAt={publishedAt}
+        />
         <Flex
           alignItems="center"
           direction="column"
@@ -24,7 +29,13 @@ export default frontMatter => {
           maxW={['85%', '80%', '70%']}
           m="auto"
         >
-          <Heading my="30px" as="h1" size="xl" textAlign="center" lineHeight="1.8">
+          <Heading
+            my="30px"
+            as="h1"
+            size="xl"
+            textAlign="center"
+            lineHeight="1.8"
+          >
             {title}
           </Heading>
           <Flex

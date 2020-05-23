@@ -1,9 +1,9 @@
-import { Box, useColorMode } from "@chakra-ui/core";
-import { color } from "../../config/theme";
+import { Box, useColorMode } from '@chakra-ui/core'
+import { color } from '../../config/theme'
 
 export default function BlockQuote(props) {
-  const { colorMode } = useColorMode();
-  const bgColor = { light: "gray.100", dark: "gray.600" };
+  const { colorMode } = useColorMode()
+  const bgColor = { light: 'gray.100', dark: 'gray.600' }
 
   return (
     <Box
@@ -20,5 +20,5 @@ export default function BlockQuote(props) {
     >
       {props.children}
     </Box>
-  );
+  )
 }

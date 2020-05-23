@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
 export const Pre = styled.pre`
   text-align: left;
@@ -12,4 +12,4 @@ export const Pre = styled.pre`
   & .token-line {
     height: 1.6em;
   }
-`;
+`

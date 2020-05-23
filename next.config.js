@@ -1,14 +1,14 @@
-const withMdxEnhanced = require("next-mdx-enhanced");
-const readingTime = require("reading-time");
+const withMdxEnhanced = require('next-mdx-enhanced')
+const readingTime = require('reading-time')
 
 module.exports = withMdxEnhanced({
-  layoutPath: "src/layouts",
+  layoutPath: 'src/layouts',
   defaultLayout: true,
-  fileExtensions: ["mdx"],
+  fileExtensions: ['mdx'],
   remarkPlugins: [],
   rehypePlugins: [],
   extendFrontMatter: {
-    process: (mdxContent) => ({
+    process: mdxContent => ({
       readingTime: readingTime(mdxContent),
     }),
   },
@@ -17,4 +17,4 @@ module.exports = withMdxEnhanced({
     FATHOM_SITE_ID: process.env.FATHOM_SITE_ID,
     FATHOM_CUSTOM_DOMAIN: process.env.FATHOM_CUSTOM_DOMAIN,
   },
-});
+})

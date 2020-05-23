@@ -1,8 +1,8 @@
-import { useColorMode, CSSReset } from "@chakra-ui/core";
-import { Global, css } from "@emotion/core";
+import { useColorMode, CSSReset } from '@chakra-ui/core'
+import { Global, css } from '@emotion/core'
 
 export const GlobalStyle = ({ children }) => {
-  const { colorMode } = useColorMode();
+  const { colorMode } = useColorMode()
 
   return (
     <>
@@ -21,18 +21,18 @@ export const GlobalStyle = ({ children }) => {
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            background: ${colorMode === "light" ? "#F7FAFC" : "#2D3748"};
+            background: ${colorMode === 'light' ? '#F7FAFC' : '#2D3748'};
           }
           #nprogress .spinner {
             display: none;
           }
           #nprogress .bar {
-            background-color: ${colorMode === "dark" ? "#F7FAFC" : "#2D3748"};
+            background-color: ${colorMode === 'dark' ? '#F7FAFC' : '#2D3748'};
             height: 4px;
           }
           .highlight-line {
             background-color: rgb(53, 59, 69);
-            width: "100%";
+            width: '100%';
             display: block;
             margin-right: -1em;
             margin-left: -1em;
@@ -43,10 +43,10 @@ export const GlobalStyle = ({ children }) => {
           p,
           li {
             code {
-              background-color: ${colorMode === "dark" ? "#F7FAFC" : "silver"};
+              background-color: ${colorMode === 'dark' ? '#F7FAFC' : 'silver'};
               padding: 6px 8px;
               border-radius: 12px;
-              color: ${colorMode === "light" ? "#F7FAFC" : "#2D3748"};
+              color: ${colorMode === 'light' ? '#F7FAFC' : '#2D3748'};
             }
           }
           /** force the twitter widget to be responsive */
@@ -59,5 +59,5 @@ export const GlobalStyle = ({ children }) => {
       />
       {children}
     </>
-  );
-};
+  )
+}

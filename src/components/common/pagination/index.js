@@ -1,10 +1,14 @@
-import { bgColor, color } from '../../../config/theme'
 import ReactPaginate from 'react-paginate'
-import style from './styles.module.scss'
-
-export default function Pagination({ currentPage, pageCount, pagginationHandler }) {
+export default function Pagination({
+  pageCount,
+  currentPage,
+  pagginationHandler,
+}) {
   return (
     <ReactPaginate
+      pageCount={pageCount}
+      pageRangeDisplayed={5}
+      marginPagesDisplayed={2}
       previousLabel={'previous'}
       nextLabel={'next'}
       breakLabel={'...'}
@@ -12,11 +16,8 @@ export default function Pagination({ currentPage, pageCount, pagginationHandler 
       activeClassName={'active'}
       containerClassName={'pagination'}
       subContainerClassName={'pages pagination'}
-      initialPage={0}
-      pageCount={pageCount}
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={5}
       onPageChange={pagginationHandler}
+      forcePage={currentPage - 1}
     />
   )
 }

@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "rm -rf .mdx-data && next dev",
     "build": "next build",
+    "lint": "eslint ./components/** ./pages/** -c .eslintrc.json --fix --ext js,jsx",
     "start": "next start",
     "export": "next export"
   },
   "dependencies": {
+    "babel-eslint": "^10.0.3",
     "@chakra-ui/core": "^0.7.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
@@ -17,11 +19,17 @@
     "babel-plugin-import-glob-array": "^0.2.0",
     "dayjs": "^1.8.26",
     "emotion-theming": "^10.0.27",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
     "next": "^9.4.0",
     "next-mdx-enhanced": "^3.0.0",
     "next-seo": "^4.4.0",
     "nprogress": "^0.2.0",
     "parse-numeric-range": "^1.2.0",
+    "prettier": "1.18.2",
     "prism": "^4.1.2",
     "prism-react-renderer": "^1.1.0",
     "prismjs": "^1.20.0",
@@ -32,7 +40,8 @@
     "react-share": "^4.1.0",
     "react-twitter-embed": "^3.0.3",
     "reading-time": "^1.2.0",
-    "sass": "^1.26.5"
+    "sass": "^1.26.5",
+    "webpack": "^4.41.1"
   },
   "license": "MIT"
 }

@@ -50,7 +50,9 @@ export default function Header() {
       color={color[colorMode]}
     >
       <Stack as="nav" isInline alignItems="center">
-        {navItems.map(item => <NavItem key={item.name} {...item} />)}
+        {navItems.map(item => (
+          <NavItem key={item.name} {...item} />
+        ))}
       </Stack>
       <Button
         onClick={toggleColorMode}

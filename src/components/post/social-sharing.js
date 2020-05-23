@@ -9,8 +9,8 @@ import {
   TwitterIcon,
   WhatsappShareButton,
   WhatsappIcon,
-} from "react-share";
-import { Flex, Box } from "@chakra-ui/core";
+} from 'react-share'
+import { Flex, Box } from '@chakra-ui/core'
 
 export default function SocialSharing({ url, title }) {
   return (
@@ -41,5 +41,5 @@ export default function SocialSharing({ url, title }) {
         </WhatsappShareButton>
       </Box>
     </Flex>
-  );
+  )
 }

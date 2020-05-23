@@ -1,9 +1,9 @@
-import React from "react";
-import { NextSeo, ArticleJsonLd } from "next-seo";
-import { fullName } from "../../config/seo";
+import React from 'react'
+import { NextSeo, ArticleJsonLd } from 'next-seo'
+import { fullName } from '../../config/seo'
 
 export default function PostSEO({ title, summary, publishedAt, url }) {
-  const date = new Date(publishedAt).toISOString();
+  const date = new Date(publishedAt).toISOString()
 
   return (
     <>
@@ -12,7 +12,7 @@ export default function PostSEO({ title, summary, publishedAt, url }) {
         description={summary}
         canonical={url}
         openGraph={{
-          type: "article",
+          type: 'article',
           article: {
             publishedTime: date,
           },
@@ -32,5 +32,5 @@ export default function PostSEO({ title, summary, publishedAt, url }) {
         url={url}
       />
     </>
-  );
+  )
 }

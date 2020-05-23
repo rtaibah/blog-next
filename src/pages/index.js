@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Flex } from '@chakra-ui/core'
 import Container from '../components/common/container'
@@ -7,51 +7,59 @@ import { frontMatter as posts } from './blog/*'
 import Pagination from '../components/common/pagination'
 
 let PER_PAGE = 20
-let postCount = posts.length
-let pageCount = postCount / PER_PAGE //decimal point?
+let totalPosts = posts.length
+let totalPages = Math.ceil(totalPosts / PER_PAGE)
 
 let sortedPosts = posts.sort(
-  (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)),
+  (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
 )
 
-const Home = () => {
-  const [currentPage, setCurrentPage] = useState(0)
+export default function Home() {
   const router = useRouter()
-  useEffect(() => {
-    const pageNumber = router.query.page || 0
-    setCurrentPage(pageNumber)
-  }, [])
-  const pagginationHandler = page => {
-    setCurrentPage(page.selected + 1)
+  const [currentPage, setCurrentPage] = useState(() =>
+    router.query.page ? Number(router.query.page) : 1
+  )
+
+  function pagginationHandler({ selected }) {
+    let nextPage = selected + 1
+    setCurrentPage(nextPage)
+
     const currentPath = router.pathname
     const currentQuery = router.query
-    currentQuery.page = page.selected + 1
+    currentQuery.page = nextPage
 
-    router.push({
-      pathname: currentPath,
-      query: currentQuery,
-    })
+    router.push(
+      {
+        pathname: currentPath,
+        query: currentQuery,
+      },
+      undefined,
+      { shallow: true }
+    )
   }
 
   return (
     <Container>
       <Pagination
-        currentPage={currentPage}
-        pageCount={pageCount}
+        pageCount={totalPages}
         pagginationHandler={pagginationHandler}
+        currentPage={currentPage}
       />
       <Flex as="main" direction="column">
-        {sortedPosts.slice(currentPage, +currentPage * PER_PAGE).map(post => {
-          return <PostItem {...post} key={post.__resourcePath} />
-        })}
+        {sortedPosts
+          .slice(
+            (currentPage - 1) * PER_PAGE,
+            (currentPage - 1) * PER_PAGE + PER_PAGE
+          )
+          .map(post => {
+            return <PostItem {...post} key={post.__resourcePath} />
+          })}
       </Flex>
-      <Pagination
-        currentPage={currentPage}
-        pageCount={pageCount}
-        pagginationHandler={pagginationHandler}
-      />
     </Container>
   )
 }
 
-export default Home
+// Required to be able to read the page number from the query param.
+export async function getServerSideProps({ query }) {
+  return { props: {} }
+}

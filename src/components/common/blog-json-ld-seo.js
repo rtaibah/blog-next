@@ -1,5 +1,5 @@
-import { BlogJsonLd } from "next-seo";
-import seo, { fullName } from "../../config/seo";
+import { BlogJsonLd } from 'next-seo'
+import seo, { fullName } from '../../config/seo'
 
 export default function BlogJsonLdSeo() {
   return (
@@ -9,5 +9,5 @@ export default function BlogJsonLdSeo() {
       authorName={fullName}
       description={seo.description}
     />
-  );
+  )
 }

@@ -1,20 +1,20 @@
-import React from "react";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import rangeParser from "parse-numeric-range";
-import theme from "prism-react-renderer/themes/nightOwl";
-import styled from "@emotion/styled";
-import { Pre } from "./pre";
+import React from 'react'
+import Highlight, { defaultProps } from 'prism-react-renderer'
+import rangeParser from 'parse-numeric-range'
+import theme from 'prism-react-renderer/themes/nightOwl'
+import styled from '@emotion/styled'
+import { Pre } from './pre'
 
-const calculateLinesToHighlight = (meta) => {
-  const RE = /{([\d,-]+)}/;
+const calculateLinesToHighlight = meta => {
+  const RE = /{([\d,-]+)}/
   if (RE.test(meta)) {
-    const strlineNumbers = RE.exec(meta)[1];
-    const lineNumbers = rangeParser(strlineNumbers);
-    return (index) => lineNumbers.includes(index + 1);
+    const strlineNumbers = RE.exec(meta)[1]
+    const lineNumbers = rangeParser(strlineNumbers)
+    return index => lineNumbers.includes(index + 1)
   } else {
-    return () => false;
+    return () => false
   }
-};
+}
 
 const LineNo = styled.span`
   display: table-cell;
@@ -22,17 +22,17 @@ const LineNo = styled.span`
   padding-right: 1em;
   user-select: none;
   opacity: 0.5;
-`;
+`
 
 const LineContent = styled.span`
   display: table-cell;
-`;
+`
 
-const listOfLangsWithNoLineNo = ["bash"];
+const listOfLangsWithNoLineNo = ['bash']
 
 export default function CodeBlock({ children, className, metastring }) {
-  const language = className.replace(/language-/, "");
-  const shouldHighlightLine = calculateLinesToHighlight(metastring);
+  const language = className.replace(/language-/, '')
+  const shouldHighlightLine = calculateLinesToHighlight(metastring)
   return (
     <Highlight
       {...defaultProps}
@@ -43,9 +43,9 @@ export default function CodeBlock({ children, className, metastring }) {
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Pre className={className} style={style}>
           {tokens.map((line, i) => {
-            const lineProps = getLineProps({ line, key: i });
+            const lineProps = getLineProps({ line, key: i })
             if (shouldHighlightLine(i)) {
-              lineProps.className = `${lineProps.className} highlight-line`;
+              lineProps.className = `${lineProps.className} highlight-line`
             }
             return (
               <div key={i} {...lineProps}>
@@ -56,10 +56,10 @@ export default function CodeBlock({ children, className, metastring }) {
                   <LineContent key={key} {...getTokenProps({ token, key })} />
                 ))}
               </div>
-            );
+            )
           })}
         </Pre>
       )}
     </Highlight>
-  );
+  )
 }
