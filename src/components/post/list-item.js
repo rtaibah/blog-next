@@ -8,7 +8,7 @@ export default function PostItem({
   title,
   url,
   image,
-  summary,
+  excerpt,
   readingTime,
   __resourcePath,
 }) {
@@ -23,30 +23,36 @@ export default function PostItem({
       p="3"
       alignSelf="flext-start"
     >
-      <Flex
-        alignItems="baseline"
-        direction={['column', 'column', 'row', 'row']}
-      >
-        <Text ml="4" fontSize={['md', 'lg', 'xl', 'xl']}>
-          {formattedPublishedAt}
-        </Text>
-        <ReadingTime minutes={minutes} />
+      <Flex direction={['column', 'column', 'row', 'row']}>
+        {image ? (
+          <Image
+            src={'/assets/images/content/' + url + '/' + image}
+            alt={title}
+            size={['150px', '150px', '250px']}
+            objectFit="cover"
+          />
+        ) : (
+          <Image
+            src={'https://via.placeholder.com/150'}
+            alt={title}
+            size={['250px', '250px', '250px']}
+            objectFit="cover"
+          />
+        )}
+        <Flex direction={'column'} marginLeft="40px">
+          <RouterLink href={formatPath(__resourcePath)} passHref>
+            <Heading as="a" lineHeight="1.8" fontSize={['md', '2xl', '2xl']}>
+              {title}
+            </Heading>
+          </RouterLink>
+          <Text ml="4" fontSize={['md', 'lg', 'xl', 'xl']}>
+            {formattedPublishedAt}
+          </Text>
+          <Text fontSize={['md', 'lg', 'xl', 'xl']}>{excerpt}</Text>
+        </Flex>
+
+        <Divider mt="30px" />
       </Flex>
-      <RouterLink href={formatPath(__resourcePath)} passHref>
-        <Heading my="20px" as="a" lineHeight="1.8">
-          {title}
-        </Heading>
-      </RouterLink>
-      {image && (
-        <Image
-          src={'/assets/images/content/' + url + '/' + image}
-          alt={title}
-          size={['150px', '350px', '650px']}
-          objectFit="cover"
-        />
-      )}
-      <Text fontSize={['md', 'lg', 'xl', 'xl']}>{summary}</Text>
-      <Divider mt="30px" />
     </Flex>
   )
 }
