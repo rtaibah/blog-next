@@ -7,6 +7,7 @@ export default function PostItem({
   publishedAt,
   title,
   url,
+  tags,
   image,
   excerpt,
   readingTime,
@@ -48,7 +49,15 @@ export default function PostItem({
           <Text ml="4" fontSize={['md', 'lg', 'xl', 'xl']}>
             {formattedPublishedAt}
           </Text>
-          <Text fontSize={['md', 'lg', 'xl', 'xl']}>{excerpt}</Text>
+          <Text fontSize={['md', 'lg', 'xl', 'xl']}>
+            {excerpt}
+
+            <RouterLink href={formatPath(__resourcePath)} passHref>
+              <Text as="a" ml="4" fontSize={['md', 'lg', 'xl', 'xl']}>
+                read more...
+              </Text>
+            </RouterLink>
+          </Text>
         </Flex>
 
         <Divider mt="30px" />

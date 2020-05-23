@@ -1,4 +1,6 @@
 import ReactPaginate from 'react-paginate'
+import style from './styles.module.scss'
+
 export default function Pagination({
   pageCount,
   currentPage,

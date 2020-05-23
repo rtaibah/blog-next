@@ -20,3 +20,13 @@ video {
   justify-self: center;
   align-self: center;
 }
+
+ul.pagination {
+  display: flex;
+  flex-direction: row;
+}
+
+.pagination li {
+  padding: 5px 15px;
+  list-style-type: none;
+}
