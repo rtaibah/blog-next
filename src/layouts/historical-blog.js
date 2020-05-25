@@ -1,5 +1,4 @@
-import { Box, Heading, Text, Flex } from '@chakra-ui/core'
-
+import { Heading, Text, Flex } from '@chakra-ui/core'
 import { formatPath, formatDate } from '../utils/formatters'
 import ReadingTime from '../components/post/reading-time'
 import Container from '../components/common/container'
