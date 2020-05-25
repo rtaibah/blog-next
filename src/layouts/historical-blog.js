@@ -21,6 +21,16 @@ export default frontMatter => {
   let minutes = parseInt(estimatedReadingMinutes)
   let sharingTitle = `${frontMatter.title}`
 
+  function renderReadingTime() {
+    if (minutes > 1) {
+      return (
+        <>
+          • <ReadingTime minutes={minutes} />
+        </>
+      )
+    }
+  }
+
   return ({ children }) => {
     return (
       <Container>
@@ -52,14 +62,13 @@ export default frontMatter => {
             mb="4"
           >
             <Text>{formattedPublishedAt}</Text>
-            <Text mx="5px" display={['none', 'none', 'block', 'block']}>
-              {' '}
-              •{' '}
-            </Text>
-            <ReadingTime minutes={minutes} />
+            <Text mx="5px" display={['none', 'none', 'block', 'block']}></Text>
+            {renderReadingTime()}
           </Flex>
           <SocialSharing title={sharingTitle} url={url} />
-          <Box textAlign="justify">{children}</Box>
+          <Flex direction="column" textAlign="justify">
+            {children}
+          </Flex>
         </Flex>
       </Container>
     )

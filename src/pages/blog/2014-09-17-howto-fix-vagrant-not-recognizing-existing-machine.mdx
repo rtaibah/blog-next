@@ -4,7 +4,7 @@ author: rami
 categories: blog
 layout: historical-blog
 image: vagrant.jpg
-excerpt:
+excerpt: "I've been using vagrant as a cornerstone of my development environment for a while now. This morning I booted up my machine, and tried to cd into my working directory only to be greeted with this error: 'bash: cd: projects: No such file or directory"
 publishedAt: '2014-09-17'
 tags:
 - dev
@@ -12,7 +12,7 @@ tags:
 url: blog
 ---
 
-I'v been using vagrant as a cornerstone of my development environment for a while now. This morning I booted up my machine, and tried to cd into my working directory only to be greeted with this:
+I've been using vagrant as a cornerstone of my development environment for a while now. This morning I booted up my machine, and tried to cd into my working directory only to be greeted with this:
 
 ```bash
 bash: cd: projects: No such file or directory
@@ -26,9 +26,6 @@ Here is how to fix a vagrant detachment.
 
 ```bash
 cd .vagrant/machines/default
-```
-
-```bash
 cp id id.bak #back up just in case
 ```
 

@@ -1,20 +1,16 @@
 import { Image, Flex, Divider, Text, Heading } from '@chakra-ui/core'
 import RouterLink from 'next/link'
 import { formatDate, formatPath } from '../../utils/formatters'
-import ReadingTime from './reading-time'
 
 export default function PostItem({
   publishedAt,
   title,
   url,
-  tags,
   image,
   excerpt,
-  readingTime,
   __resourcePath,
 }) {
   let formattedPublishedAt = formatDate(publishedAt)
-  let minutes = parseInt(readingTime.minutes)
   return (
     <Flex
       as="article"
