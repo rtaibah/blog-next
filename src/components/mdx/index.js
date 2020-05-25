@@ -8,6 +8,7 @@ import CodeBlock from './code-block'
 import BlockQuote from './quote'
 import InlineCode from './inline-code'
 import Strong from './strong'
+import Video from './video'
 
 export default {
   h1: props => <Heading as="h1" size="xl" lineHeight="1.8" m="4" {...props} />,
@@ -23,4 +24,5 @@ export default {
   inlineCode: props => <InlineCode dir="ltr" {...props} />,
   blockquote: props => <BlockQuote {...props} />,
   a: props => <MDXLink {...props} />,
+  video: props => <Video {...props} />,
 }
